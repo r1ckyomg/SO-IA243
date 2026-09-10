@@ -18,15 +18,17 @@ public class Main {
 }
 
 class GuiTimerVova{
+    int currProgress = 0;
+
     JFrame frame = new JFrame("First lab - GUI interface");
 
     JProgressBar progressBar = new JProgressBar(0, 100);
     JLabel progressLabel = new JLabel("Статус: Ожидание");
+    JLabel title = new JLabel("Steam Installer: Горячий Мучачос");
     JButton startButton = new JButton("Start");
+    JButton pauseButton = new JButton("Pause");
 
     ActionListener actionListener = new ActionListener() {
-        int currProgress = 0;
-
         @Override
         public void actionPerformed(ActionEvent e) {
             currProgress += 1;
@@ -45,9 +47,18 @@ class GuiTimerVova{
     ActionListener actionListenerStarter = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            progressLabel.setText("Статус: Выполнение...");
+            progressLabel.setText("Статус: Установка...");
             startButton.setEnabled(false);
             timer.start();
+        }
+    };
+
+    ActionListener actionListenerPause = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            progressLabel.setText("Статус: Ожидание...");
+            startButton.setEnabled(true);
+            timer.stop();
         }
     };
 
@@ -58,15 +69,18 @@ class GuiTimerVova{
     }
 
     private void setComponentsOnWindow() {
+        frame.add(title);
         frame.add(progressBar);
         frame.add(progressLabel);
         frame.add(startButton);
+        frame.add(pauseButton);
     }
 
     public void startApp() {
         setComponentsOnWindow();
 
         startButton.addActionListener(actionListenerStarter);
+        pauseButton.addActionListener(actionListenerPause);
 
         frame.setVisible(true);
     }
