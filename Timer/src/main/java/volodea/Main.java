@@ -80,12 +80,13 @@ class consoleTimerVane {
 }
 public class Main {
     static void main() {
-        GuiTimerVova guiTimerVova = new GuiTimerVova();
-        guiTimerVova.startApp();
         consoleTimerVane.runwithDelay(3000);
         consoleTimerVane.runAtDateTimw(5000);
         consoleTimerVane.runFixedDelay(1000,2000);
         consoleTimerVane.runFixedRate(1000,2000);
+
+        GuiTimerVova guiTimerVova = new GuiTimerVova();
+        guiTimerVova.startApp();
     }
 }
 
@@ -107,14 +108,14 @@ class GuiTimerVova{
             progressBar.setValue(currProgress);
 
             if(currProgress >= 100){
-                ((Timer) e.getSource()).stop();
+                ((javax.swing.Timer) e.getSource()).stop();
                 progressLabel.setText("Статус: Завершён");
                 startButton.setEnabled(true);
             }
         }
     };
 
-    Timer timer = new Timer(100, actionListener);
+    javax.swing.Timer timer = new javax.swing.Timer(100, actionListener);
 
     ActionListener actionListenerStarter = new ActionListener() {
         @Override
