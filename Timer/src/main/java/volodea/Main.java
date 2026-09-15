@@ -87,6 +87,7 @@ public class Main {
 
         GuiTimerVova guiTimerVova = new GuiTimerVova();
         guiTimerVova.startApp();
+        System.out.println("255956");
     }
 }
 
