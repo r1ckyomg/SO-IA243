@@ -5,7 +5,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -87,7 +86,9 @@ public class Main {
 
         GuiTimerVova guiTimerVova = new GuiTimerVova();
         guiTimerVova.startApp();
+
         System.out.println("255956");
+        System.out.println("Djjdfsd");
     }
 }
 
