@@ -17,11 +17,11 @@ type Question struct {
 var (
 	prepDuration  = 3 * time.Second
 	roundDuration = 15 * time.Second
-	hintInterval  = 3 * time.Second
+	hintInterval  = 5 * time.Second
 )
 
 func main() {
-	fmt.Println("квизаваы. 'exit' - выход.")
+	fmt.Println("квизфвфаы. 'exit' - выход.")
 
 	questions := []Question{
 		{
