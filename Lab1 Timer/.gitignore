@@ -1,9 +1,0 @@
-*.exe
-*.dll
-
-*.docx
-
-*.test
-*.out
-
-/bin/
