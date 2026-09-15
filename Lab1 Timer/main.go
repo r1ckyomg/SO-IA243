@@ -21,7 +21,7 @@ var (
 )
 
 func main() {
-	fmt.Println("квиз. 'exit' - выход.")
+	fmt.Println("квизаваы. 'exit' - выход.")
 
 	questions := []Question{
 		{
@@ -53,18 +53,18 @@ func main() {
 	}
 
 	inputChan := startInputReader()
-    totalScore := 0
+	totalScore := 0
 
-    for i, q := range questions {
-        score, quit := playRound(i+1, q, inputChan)
-        if quit {
-            fmt.Println("выход")
-            return
-        }
-        totalScore += score
-    }
+	for i, q := range questions {
+		score, quit := playRound(i+1, q, inputChan)
+		if quit {
+			fmt.Println("выход")
+			return
+		}
+		totalScore += score
+	}
 
-    fmt.Printf("\nитог: %d\n", totalScore)
+	fmt.Printf("\nитог: %d\n", totalScore)
 
 }
 
