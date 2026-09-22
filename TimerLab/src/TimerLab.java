@@ -13,14 +13,14 @@ public class TimerLab extends JFrame {
     private final JLabel periodicLabel = new JLabel("Секунд прошло: 0 из 15");
     private final JButton startButton = new JButton("Старт");
     private final JButton stopButton = new JButton("Стоп");
-
+    
     private Timer delayedTimer;
     private javax.swing.Timer swingTimer;
     private int seconds;
     private long generation;
 
     public TimerLab() {
-        super("Таймеры: вариант студента Б");
+        super("Общий Вариант Таймеров");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel controls = new JPanel(new FlowLayout());
