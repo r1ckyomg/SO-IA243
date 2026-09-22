@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
-        Parent root = (Parent)FXMLLoader.load(this.getClass().getResource("sample.fxml"));
+        Parent root = (Parent)FXMLLoader.load(this.getClass().getResource("sample.fxml")); //xml file
         primaryStage.setTitle("Лаба про таймеры");
         primaryStage.setScene(new Scene(root, (double)450.0F, (double)350.0F));
         primaryStage.show();
