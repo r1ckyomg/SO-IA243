@@ -39,7 +39,7 @@ public class Controller {
             }
 
             public void run() {
-                Controller.this.log("Таймер 1: Сработал!");
+                Controller.this.log("Сработал!");
                 timer.cancel();
             }
         }, (long)delay * 1000L);
@@ -60,9 +60,9 @@ public class Controller {
 
             public void run() {
                 ++this.elapsed;
-                Controller.this.log("Таймер 2 работает... прошло секунд: " + this.elapsed);
+                Controller.this.log("прошло секунд: " + this.elapsed);
                 if (this.elapsed >= duration) {
-                    Controller.this.log("Таймер 2: Время истекло, стоять бояться!");
+                    Controller.this.log("Время истекло, стоять бояться!");
                     timer.cancel();
                 }
 
@@ -89,7 +89,7 @@ public class Controller {
 
             public void run() {
                 ++this.count;
-                Controller.this.log("Таймер 3: Срабатывание №" + this.count);
+                Controller.this.log("Срабатывание №" + this.count);
             }
         }, 0L, (long)period * 1000L);
     }
@@ -99,7 +99,7 @@ public class Controller {
         if (this.timer3 != null) {
             this.timer3.cancel();
             this.timer3 = null;
-            this.log("Таймер 3 остановлен");
+            this.log("Остановитесь!");
         }
 
     }

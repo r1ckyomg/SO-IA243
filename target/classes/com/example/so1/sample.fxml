@@ -8,48 +8,39 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER"
-      spacing="10.0"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.so1.Controller">
+<VBox alignment="CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="com.example.so1.Controller">
 
     <padding>
-        <Insets bottom="20.0"
-                left="20.0"
-                right="20.0"
-                top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label text="Лабораторная работа — Таймеры"/>
+    <Label text="Лаба таймеры" />
 
-    <HBox spacing="10.0" alignment="CENTER">
-        <Label text="Задержка (сек):"/>
-        <TextField fx:id="delayField" prefWidth="100"/>
-        <Button text="Таймер 1"
-                onAction="#startTimer1"/>
+    <HBox alignment="BOTTOM_LEFT" spacing="10.0">
+        <Label text="Задержка (сек):" />
+        <TextField fx:id="delayField" prefWidth="100" />
+        <Button onAction="#startTimer1" text="Таймер 1" />
     </HBox>
 
-    <HBox spacing="10.0" alignment="CENTER">
-        <Label text="Длительность (сек):"/>
-        <TextField fx:id="durationField" prefWidth="100"/>
-        <Button text="Таймер 2"
-                onAction="#startTimer2"/>
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <Label text="Длительность (сек):" />
+        <TextField fx:id="durationField" prefWidth="100" />
+        <Button onAction="#startTimer2" text="Таймер 2" />
     </HBox>
 
-    <HBox spacing="10.0" alignment="CENTER">
-        <Label text="Период (сек):"/>
-        <TextField fx:id="periodField" prefWidth="100"/>
-        <Button text="Запустить таймер 3"
-                onAction="#startTimer3"/>
-        <Button text="Остановить"
-                onAction="#stopTimer3"/>
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <Label text="Период (сек):" />
+        <TextField fx:id="periodField" prefWidth="100" />
+        <Button onAction="#startTimer3" text="Запустить таймер 3" />
+        <Button onAction="#stopTimer3" text="Стоять!" />
     </HBox>
+   <VBox>
+      <children>
+      
+          <Label text="Логи:" />
+      </children>
+   </VBox>
 
-    <Label text="Журнал:"/>
-
-    <TextArea fx:id="logArea"
-              prefHeight="180"
-              prefWidth="400"
-              editable="false"/>
+    <TextArea fx:id="logArea" editable="false" prefHeight="180" prefWidth="400" />
 
 </VBox>
