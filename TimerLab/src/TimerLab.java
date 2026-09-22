@@ -46,7 +46,7 @@ public class TimerLab extends JFrame {
         stopTimers();
         seconds = 0;
         delayedLabel.setText("Действие через 3 секунды: ожидание");
-        periodicLabel.setText("Секунд прошло: 0 из 14");
+        periodicLabel.setText("Секунд прошло: 0 из 15");
         startButton.setEnabled(false);
         stopButton.setEnabled(true);
         final long currentGeneration = generation;
@@ -65,10 +65,10 @@ public class TimerLab extends JFrame {
 
         swingTimer = new javax.swing.Timer(1000, e -> {
             seconds++;
-            periodicLabel.setText("Секунд прошло: " + seconds + " из 14");
-            if (seconds == 14) {
+            periodicLabel.setText("Секунд прошло: " + seconds + " из 15");
+            if (seconds == 15) {
                 stopTimers();
-                periodicLabel.setText("Готово: 14 действий за 14 секунд");
+                periodicLabel.setText("Готово: 15 действий за 15 секунд");
             }
         });
         swingTimer.start();
