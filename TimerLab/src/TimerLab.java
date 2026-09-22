@@ -22,7 +22,7 @@ public class TimerLab extends JFrame {
     public TimerLab() {
         super("Общий Вариант");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        //conflict
         JPanel controls = new JPanel(new FlowLayout());
         controls.add(startButton);
         controls.add(stopButton);
