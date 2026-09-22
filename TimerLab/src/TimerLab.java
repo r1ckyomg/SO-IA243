@@ -24,6 +24,8 @@ public class TimerLab extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	//fdfsdfs
 
+        //conflict
+
         JPanel controls = new JPanel(new FlowLayout());
         controls.add(startButton);
         controls.add(stopButton);
