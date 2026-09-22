@@ -68,7 +68,7 @@ public class TimerLab extends JFrame {
             periodicLabel.setText("Секунд прошло: " + seconds + " из 15");
             if (seconds == 15) {
                 stopTimers();
-                periodicLabel.setText("Готово: 15 действий за 15 секунд");
+                periodicLabel.setText("Готово");
             }
         });
         swingTimer.start();
