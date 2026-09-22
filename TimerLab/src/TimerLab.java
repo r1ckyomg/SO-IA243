@@ -45,7 +45,7 @@ public class TimerLab extends JFrame {
     private void startTimers() {
         stopTimers();
         seconds = 0;
-        delayedLabel.setText("Действие через 3 секунды: ожидание");
+        delayedLabel.setText("Действие через 3 секунды: ожидание...");
         periodicLabel.setText("Секунд прошло: 0 из 8");
         startButton.setEnabled(false);
         stopButton.setEnabled(true);
