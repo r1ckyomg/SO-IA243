@@ -10,17 +10,17 @@ import javax.swing.SwingUtilities;
 
 public class TimerLab extends JFrame {
     private final JLabel delayedLabel = new JLabel("Действие через 3 секунды: ожидание");
-    private final JLabel periodicLabel = new JLabel("Секунд прошло: 0 из 8");
+    private final JLabel periodicLabel = new JLabel("Секунд прошло: 0 из 15");
     private final JButton startButton = new JButton("Старт");
     private final JButton stopButton = new JButton("Стоп");
-
+    
     private Timer delayedTimer;
     private javax.swing.Timer swingTimer;
     private int seconds;
     private long generation;
 
     public TimerLab() {
-        super("Таймеры: вариант студента А");
+        super("Общий Вариант");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel controls = new JPanel(new FlowLayout());
@@ -65,10 +65,10 @@ public class TimerLab extends JFrame {
 
         swingTimer = new javax.swing.Timer(1000, e -> {
             seconds++;
-            periodicLabel.setText("Секунд прошло: " + seconds + " из 8");
-            if (seconds == 8) {
+            periodicLabel.setText("Секунд прошло: " + seconds + " из 15");
+            if (seconds == 15) {
                 stopTimers();
-                periodicLabel.setText("Готово: 8 действий за 8 секунд");
+                periodicLabel.setText("Готово: 15 действий за 15 секунд");
             }
         });
         swingTimer.start();
