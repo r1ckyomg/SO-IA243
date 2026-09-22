@@ -20,7 +20,7 @@ public class TimerLab extends JFrame {
     private long generation;
 
     public TimerLab() {
-        super("Общий Вариант Таймеров");
+        super("Общий Вариант");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel controls = new JPanel(new FlowLayout());
