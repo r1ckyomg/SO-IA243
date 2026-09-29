@@ -29,7 +29,7 @@ public class TaskPlanner extends JFrame {
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-
+        //ривет
         // Панель добавления задачи
         JPanel topPanel = new JPanel(new FlowLayout());
 
