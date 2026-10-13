@@ -182,7 +182,7 @@ public class Main extends JFrame {
             @Override
             public void run() {
                 count++;
-                log("Таймер 3: сигнал №" + count);
+                log("Таймер 3: сигнал №" + count); // comment
                 Toolkit.getDefaultToolkit().beep();
             }
         }, 0L, seconds * 1000L);
