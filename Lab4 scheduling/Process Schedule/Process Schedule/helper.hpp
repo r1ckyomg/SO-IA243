@@ -8,11 +8,11 @@
 #include <numeric>
 #include <algorithm>
 
-
 struct Unit
 {
     std::string_view name{};
     uint8_t time{};
+    uint8_t priority{};
 
     constexpr operator uint8_t() const
     {
@@ -21,6 +21,10 @@ struct Unit
 
     constexpr auto operator<=>(const Unit& other) const
     {
+        if (priority != other.priority)
+        {
+            return other.priority <=> priority;
+        }
         return time <=> other.time;
     }
 };
@@ -100,7 +104,6 @@ public:
 
     }
 
-
     std::vector<Unit> data{};
     std::vector<uint8_t> process_times{};
     uint8_t K{};
@@ -111,5 +114,4 @@ public:
     constexpr Process(std::initializer_list<Unit> d, uint8_t K) : data(d), K(K) {}
     
     ~Process() = default;
-
 };

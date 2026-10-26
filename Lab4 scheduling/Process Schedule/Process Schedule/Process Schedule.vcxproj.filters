@@ -23,22 +23,7 @@
     <ClInclude Include="helper.hpp">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="round_robin.hpp">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="sjf.hpp">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="priority.hpp">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="shortestFirst.hpp">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="srtf.hpp">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="just_scheduling.hpp">
+    <ClInclude Include="algo.hpp">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,29 +1,11 @@
 #include <print>
 #include "algo.hpp"
 
-#include <concepts>
-
-
-template<typename T>
-void calc (T&& process) 
-{
-    if constexpr (std::same_as <T, SJF> || std::same_as<T, FCFS>)
-    {
-        calculateSJF(process);
-    }
-    if constexpr (std::same_as<T, RR>)
-    {
-        calculateRR(process);
-    }
-    if constexpr (std::same_as<T, SRTF>)
-    {
-        calculateSJF(process);
-    }
-};
 
 int main()
 {
     using std::println;
+
     /*
     1. Алгоритм «Первым пришел – первым обслужен» (First Come, First Served –
     FCFS)
@@ -40,11 +22,11 @@ int main()
 
     */
     std::println("FCFS\n{}", std::string(50, '='));
-    calc(FCFS{ {"A", 5}, {"B", 9}, {"C", 4}, {"D",7 } });
-    calc(FCFS{ {"P1", 6}, {"P2", 3}, {"P3",8}, {"P4",2} });
-    calc(FCFS{ {"X",2}, {"Y", 6}, {"Z",3 }, {"W",4}});
-    calc(FCFS{ {"T1",10}, {"T2", 2}, {"T3", 4}, {"T4", 6}});
-    calc(FCFS{ {"M",7}, {"N",5 }, {"O",8}, {"P",3}});
+    calculateAlgo(FCFS{ {"A", 5}, {"B", 9}, {"C", 4}, {"D",7 } });
+    calculateAlgo(FCFS{ {"P1", 6}, {"P2", 3}, {"P3",8}, {"P4",2} });
+    calculateAlgo(FCFS{ {"X",2}, {"Y", 6}, {"Z",3 }, {"W",4}});
+    calculateAlgo(FCFS{ {"T1",10}, {"T2", 2}, {"T3", 4}, {"T4", 6}});
+    calculateAlgo(FCFS{ {"M",7}, {"N",5 }, {"O",8}, {"P",3}});
 
 
     /*
@@ -60,11 +42,11 @@ int main()
 
     std::println("SJF\n{}", std::string(50, '='));
 
-    calc(SJF{ {"A", 7}, {"B", 2}, {"C", 4}, {"D", 1} });
-    calc(SJF{ {"P1", 5}, {"P2", 3}, {"P3", 1}, {"P4", 2} });
-    calc(SJF{ {"X", 6}, {"Y", 4}, {"Z", 3}, {"W", 2} });
-    calc(SJF{ {"T1", 8}, {"T2", 3}, {"T3", 6}, {"T4", 1} });
-    calc(SJF{ {"M", 9}, {"N", 5}, {"O", 2}, {"P", 4} });
+    calculateAlgo(SJF{ {"A", 7}, {"B", 2}, {"C", 4}, {"D", 1} });
+    calculateAlgo(SJF{ {"P1", 5}, {"P2", 3}, {"P3", 1}, {"P4", 2} });
+    calculateAlgo(SJF{ {"X", 6}, {"Y", 4}, {"Z", 3}, {"W", 2} });
+    calculateAlgo(SJF{ {"T1", 8}, {"T2", 3}, {"T3", 6}, {"T4", 1} });
+    calculateAlgo(SJF{ {"M", 9}, {"N", 5}, {"O", 2}, {"P", 4} });
 
 
     /*
@@ -85,11 +67,11 @@ int main()
     */
 
     std::println("SRTF\n{}", std::string(50, '='));
-    calc(SRTF({ {"A",8}, {"B",4},{"C",3},{"D",7}, },5));
-    calc(SRTF({ {"P1",10}, {"P2",5},{"P3",6},{"P4",8} },4));
-    calc(SRTF({ {"X",7}, {"Y",9},{"Z",5},{"W",3} },3));
-    calc(SRTF({ {"T1", 11}, {"T2",6},{"T3",4},{"T4",8} },6));
-    calc(SRTF({ {"M",9}, {"N",2},{"O",8},{"P",5} },4));
+    calculateAlgo(SRTF({ {"A",8}, {"B",4},{"C",3},{"D",7}, },5));
+    calculateAlgo(SRTF({ {"P1",10}, {"P2",5},{"P3",6},{"P4",8} },4));
+    calculateAlgo(SRTF({ {"X",7}, {"Y",9},{"Z",5},{"W",3} },3));
+    calculateAlgo(SRTF({ {"T1", 11}, {"T2",6},{"T3",4},{"T4",8} },6));
+    calculateAlgo(SRTF({ {"M",9}, {"N",2},{"O",8},{"P",5} },4));
 
 
     /*
@@ -105,11 +87,11 @@ int main()
     
     std::println("\nRound-Robin\n{}", std::string(50, '='));
 
-    calc(RR{ { {"A", 10}, {"B", 15}, {"C", 20}, {"D", 25} }, 10 });
-    calc(RR{ { {"P1", 12}, {"P2", 8}, {"P3", 16}, {"P4", 6} }, 7 });
-    calc(RR{ { {"X", 9}, {"Y", 14}, {"Z", 11}, {"W", 13} }, 5 });
-    calc(RR{ { {"T1", 20}, {"T2", 12}, {"T3", 9}, {"T4", 16} }, 8 });
-    calc(RR{ { {"M", 18}, {"N", 22}, {"O", 13}, {"P", 17} }, 9 });
+    calculateAlgo(RR{ { {"A", 10}, {"B", 15}, {"C", 20}, {"D", 25} }, 10 });
+    calculateAlgo(RR{ { {"P1", 12}, {"P2", 8}, {"P3", 16}, {"P4", 6} }, 7 });
+    calculateAlgo(RR{ { {"X", 9}, {"Y", 14}, {"Z", 11}, {"W", 13} }, 5 });
+    calculateAlgo(RR{ { {"T1", 20}, {"T2", 12}, {"T3", 9}, {"T4", 16} }, 8 });
+    calculateAlgo(RR{ { {"M", 18}, {"N", 22}, {"O", 13}, {"P", 17} }, 9 });
 
 
     /*
@@ -127,8 +109,12 @@ int main()
     *
     */
 
-    std::println("\nPriority Scheduling {}", std::string(50, '='));
-
+    std::println("\nPriority Scheduling\n{}", std::string(50, '='));
+    calculateAlgo(Priority{ {"A", 5, 1}, {"B", 9, 3}, {"C", 6, 2}, {"D", 8, 4} });
+    calculateAlgo(Priority{ {"P1", 10, 2}, {"P2", 4, 1}, {"P3", 8, 3}, {"P4", 6, 4} });
+    calculateAlgo(Priority{ {"X", 12, 2}, {"Y", 7, 1}, {"Z", 5, 3}, {"W", 9, 4} });
+    calculateAlgo(Priority{ {"T1", 11, 3}, {"T2", 6, 1}, {"T3", 9, 2}, {"T4", 8, 4} });
+    calculateAlgo(Priority{ {"M", 13, 4}, {"N", 10, 3}, {"O", 7, 2}, {"P", 5, 1} });
 
     /*
     6. Задачи для алгоритма «Самый короткий процесс следующий» (Временной
@@ -143,13 +129,19 @@ int main()
     8. Найдите порядок выполнения и среднее время выполнения.
     5. **Входные данные**: 4 процесса со временем выполнения: A = 3, B = 9, C =
     14, D = 6. Найдите порядок выполнения и среднее время выполнения.
-    7. Задачи для алгоритма «Планирование на основе справедливости» (Временной
-    квант K=8)
     *
     */
+    std::println("\nSPN\n{}", std::string(50, '='));
+    calculateAlgo(SPN{ {"A", 5},  {"B", 12}, {"C", 7}, {"D", 9} });
+    calculateAlgo(SPN{ {"A", 15}, {"B", 3},  {"C", 8}, {"D", 20}, {"E", 4} });
+    calculateAlgo(SPN{ {"A", 10}, {"B", 8},  {"C", 6}, {"D", 2} });
+    calculateAlgo(SPN{ {"A", 6},  {"B", 16}, {"C", 8} });
+    calculateAlgo(SPN{ {"A", 3},  {"B", 9},  {"C", 14}, {"D", 6} });
 
 
     /*
+    7. Задачи для алгоритма «Планирование на основе справедливости» (Временной
+    квант K=8)
     1. **Входные данные**: три пользователя. Первый пользователь получает 33%
     времени процессора и имеет процессы A(12), B(8). Второй пользователь получает 33%
     времени и имеет и процессы X(10), Y(6). Третий пользователь получает 33% времени и имеет
@@ -172,4 +164,36 @@ int main()
     времени и имеет процесс X(10). Третий пользователь получает 25% времени и имеет процесс
     Z(14). Какой будет порядок выполнения процессов?
     */
+    std::println("\nFSS\n{}", std::string(50, '='));
+
+    // A(8) B(8) A(4)    X(8) Y(6) X(2)    Z(8) Z(8)  AXZBYZAX 
+    calculateAlgo(FSS{
+    { 33, { {"A", 12}, {"B", 8} } },
+    { 33, { {"X", 10}, {"Y", 6} } },
+    { 33, { {"Z", 16} } }
+        });
+    calculateAlgo(FSS{
+        { 50, { {"A", 10}, {"B", 5} } },
+        { 25, { {"X", 7},  {"Y", 3} } },
+        { 25, { {"Z", 12} } }
+        });
+
+    calculateAlgo(FSS{
+        { 33, { {"A", 8},  {"B", 6}, {"C", 5} } },
+        { 33, { {"X", 12}, {"Y", 10} } },
+        { 33, { {"Z", 20} } }
+        });
+
+    calculateAlgo(FSS{
+        { 40, { {"A", 15}, {"B", 10}, {"C", 8} } },
+        { 20, { {"X", 6},  {"Y", 5} } },
+        { 20, { {"Z", 18} } },
+        { 20, { {"Q", 14} } }
+        });
+
+    calculateAlgo(FSS{
+        { 50, { {"A", 10}, {"B", 7}, {"C", 6} } },
+        { 25, { {"X", 10} } },
+        { 25, { {"Z", 14} } }
+        });
 };

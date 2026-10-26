@@ -128,13 +128,8 @@
     <ClCompile Include="С++23 Template.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="just_scheduling.hpp" />
-    <ClInclude Include="priority.hpp" />
-    <ClInclude Include="shortestFirst.hpp" />
-    <ClInclude Include="sjf.hpp" />
+    <ClInclude Include="algo.hpp" />
     <ClInclude Include="helper.hpp" />
-    <ClInclude Include="round_robin.hpp" />
-    <ClInclude Include="srtf.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
