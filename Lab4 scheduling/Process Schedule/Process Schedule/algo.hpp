@@ -39,7 +39,7 @@ struct User : public Process
     }
 };
 
-struct FSS
+struct FSS : public Process
 {
     std::vector<User> users{};
     FSS(std::initializer_list<User> u) : users(u)
@@ -50,22 +50,22 @@ struct FSS
         uint8_t min_share = 100;
         for (const auto& u : users)
             min_share = std::min(min_share, u.share);
-        std::vector<Unit> result{};
+        data.clear();
         bool active = true;
         while (active)
         {
             active = false;
             for (auto& u : users)
             {
-                uint8_t steps = u.share / min_share; 
+                uint8_t steps = u.share / min_share;
                 for (uint8_t s = 0; s < steps && u.idx < u.data.size(); ++s)
                 {
-                    result.emplace_back(u.data[u.idx++]);
+                    data.emplace_back(u.data[u.idx++]);
                     active = true;
                 }
             }
         }
-        return result;
+        return data;
     }
 };
 
@@ -75,6 +75,7 @@ constexpr void calculateAlgo(T&& process)
     if constexpr (std::same_as<T, FSS>)
     {
         std::println("Fair-share order: {}\n", process.schedule());
+        std::println("{:<32} {:.5}\n", "Avg time for process: ", process.calcAvgExec());
     }
     else if constexpr (std::same_as<T, RR>)
     {
