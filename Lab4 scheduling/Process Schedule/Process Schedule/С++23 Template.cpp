@@ -1,6 +1,11 @@
 #include <print>
 #include "sjf.hpp"
 #include "round_robin.hpp"
+#include <concepts>
+#include <map>
+#include <string_view>
+#include <vector>
+#include <cstdint>
 
 template<typename T>
 void calc (T&& process) 
@@ -30,11 +35,15 @@ int main()
     */
 
     std::println("SJF\n{}", std::string(50, '='));
-    calc(SJF{ 7,2,4,1 });
+    //calc(SJF{ 7,2,4,1 });
     calc(SJF{ 5,3,1,2 });
     calc(SJF{ 6,4,3,2 });
     calc(SJF{ 8,3,6,1 });
     calc(SJF{ 9,5,2,4 });
+
+    //SJF({ "A", {7} }, { "B", {2} }, { "C", {4} });
+
+    calc(SJF({ {"A", 7}, {"B", 2}, {"C", 4}, {"D", 1} }));
 
     /*
     *
@@ -47,6 +56,8 @@ int main()
     *
     */
 
+    std::map<std::string_view, std::vector<uint8_t>> data{ {"A", {10}}, {"B", {15}}, {"C", {20}}, {"D", {25}} };
+    
     std::println("\nRound-Robin\n{}", std::string(50, '='));
     calc(RR{ { 10,15,20,25 },  10 });
     calc(RR{ { 12,8,16,6   },   7 });
@@ -55,5 +66,3 @@ int main()
     calc(RR{ { 18,22,13,17 },   9 });
 
 };
-
-    
