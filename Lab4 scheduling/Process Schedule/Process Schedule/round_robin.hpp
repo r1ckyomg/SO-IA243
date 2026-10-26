@@ -33,6 +33,6 @@ public:
 void calculateRR(RR& process)
 {
 	std::println("New order with quant considered: {}", process.quantOverhead());
-	std::println("Avg time for process: {:.5}", process.calcAvgDuration());
+	std::println("{:<32} {:.5}", "Avg time for process: ", process.calcAvgDuration());
 
 }

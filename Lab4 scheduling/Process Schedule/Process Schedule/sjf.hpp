@@ -2,6 +2,9 @@
 #include "helper.hpp"
 #include <utility>
 #include <print>
+#include <optional>
+#include <numeric>
+#include <algorithm>
 
 class SJF : public Process
 {
@@ -14,10 +17,10 @@ public:
         return std::accumulate(sep_time.begin(), sep_time.end(), 0.0f) / sep_time.size();
     }
 
-    constexpr std::expected<std::pair<float, std::vector<uint8_t>>, Error> processDellay()
+    constexpr std::optional<std::pair<float, std::vector<uint8_t>>> processDellay()
     {
         if (data.empty())
-            return std::unexpected(Error::EMPTY);
+            return std::nullopt;
 
         process_time.clear();
         uint8_t prev = 0;

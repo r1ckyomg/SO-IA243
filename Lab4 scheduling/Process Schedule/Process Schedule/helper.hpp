@@ -1,18 +1,11 @@
 #pragma once
 #include <vector>
 #include <cstdint>
-#include <numeric>
-#include <algorithm>
-#include <expected>
-#include <utility>
 
 class Process
 {
 public: 
-    enum class Error : int8_t
-    {
-        EMPTY = -5,
-    };
+
     Process() = default;
     ~Process() = default;
     constexpr Process(std::initializer_list<uint8_t> d) : data(d)
@@ -32,5 +25,4 @@ public:
         sum /= data.size();
         return sum;
     }
-
 };
