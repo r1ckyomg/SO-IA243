@@ -1,6 +1,6 @@
 #include <print>
-#include "sjf.hpp"
-#include "round_robin.hpp"
+#include "algo.hpp"
+
 #include <concepts>
 
 
