@@ -23,10 +23,7 @@
     <ClInclude Include="helper.hpp">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="round_robin.hpp">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="sjf.hpp">
+    <ClInclude Include="algo.hpp">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
