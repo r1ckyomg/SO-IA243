@@ -1,9 +1,11 @@
 #include <print>
 #include "algo.hpp"
+#include <string>
 
 
 int main()
 {
+
     using std::println;
 
     /*
@@ -21,7 +23,7 @@ int main()
     выполнения и время для каждого процесса.
 
     */
-    std::println("FCFS\n{}", std::string(50, '='));
+    println("FCFS\n{}", std::string(50, '='));
     calculateAlgo(FCFS{ {"A", 5}, {"B", 9}, {"C", 4}, {"D",7 } });
     calculateAlgo(FCFS{ {"P1", 6}, {"P2", 3}, {"P3",8}, {"P4",2} });
     calculateAlgo(FCFS{ {"X",2}, {"Y", 6}, {"Z",3 }, {"W",4}});
@@ -40,7 +42,39 @@ int main()
     *
     */
 
-    std::println("SJF\n{}", std::string(50, '='));
+    println("SJF\n{}", std::string(50, '='));
+
+    calculateAlgo(SJF{ {"A", 7}, {"B", 2}, {"C", 4}, {"D", 1} });
+    calculateAlgo(SJF{ {"P1", 5}, {"P2", 3}, {"P3", 1}, {"P4", 2} });
+    calculateAlgo(SJF{ {"X", 6}, {"Y", 4}, {"Z", 3}, {"W", 2} });
+    calculateAlgo(SJF{ {"T1", 8}, {"T2", 3}, {"T3", 6}, {"T4", 1} });
+    calculateAlgo(SJF{ {"M", 9}, {"N", 5}, {"O", 2}, {"P", 4} });
+
+
+    /*
+    3. Алгоритм «Самое короткое оставшееся время» (Shortest Remaining Time First –
+    SRTF)
+
+    1. **Входные данные**: A(8), B(4), C(3), D(7). K = 5. Найдите среднее время
+    выполнения и порядок выполнения процессов.
+    2. **Входные данные**: P1(10), P2(5), P3(6), P4(8). K = 4. Найдите среднее время
+    выполнения и порядок выполнения процессов.
+    3. **Входные данные**: X(7), Y(9), Z(5), W(3). K = 3. Найдите среднее время
+    выполнения и порядок выполнения процессов.
+    4. **Входные данные**: T1(11), T2(6), T3(4), T4(8). K = 6. Найдите среднее время
+    выполнения и порядок выполнения процессов.
+    5. **Входные данные**: M(9), N(2), O(8), P(5). K = 4. Найдите среднее время
+    выполнения и порядок выполнения процессов.
+    *
+    */
+
+    println("SRTF\n{}", std::string(50, '='));
+    calculateAlgo(SRTF({ {"A",8}, {"B",4},{"C",3},{"D",7}, },5));
+    calculateAlgo(SRTF({ {"P1",10}, {"P2",5},{"P3",6},{"P4",8} },4));
+    calculateAlgo(SRTF({ {"X",7}, {"Y",9},{"Z",5},{"W",3} },3));
+    calculateAlgo(SRTF({ {"T1", 11}, {"T2",6},{"T3",4},{"T4",8} },6));
+    calculateAlgo(SRTF({ {"M",9}, {"N",2},{"O",8},{"P",5} },4));
+
 
     calculateAlgo(SJF{ {"A", 7}, {"B", 2}, {"C", 4}, {"D", 1} });
     calculateAlgo(SJF{ {"P1", 5}, {"P2", 3}, {"P3", 1}, {"P4", 2} });
@@ -85,7 +119,7 @@ int main()
     *
     */
     
-    std::println("\nRound-Robin\n{}", std::string(50, '='));
+    println("\nRound-Robin\n{}", std::string(50, '='));
 
     calculateAlgo(RR{ { {"A", 10}, {"B", 15}, {"C", 20}, {"D", 25} }, 10 });
     calculateAlgo(RR{ { {"P1", 12}, {"P2", 8}, {"P3", 16}, {"P4", 6} }, 7 });

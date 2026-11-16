@@ -2,6 +2,11 @@
 #include "helper.hpp"
 #include <utility>
 #include <print>
+#include <cstdint>
+#include <initializer_list>
+#include <concepts>
+#include <vector>
+#include <algorithm>
 
 enum class Algo : uint8_t
 {
@@ -74,8 +79,8 @@ constexpr void calculateAlgo(T&& process)
 {
     if constexpr (std::same_as<T, FSS>)
     {
-        std::println("Fair-share order: {}\n", process.schedule());
-        std::println("{:<32} {:.5}\n", "Avg time for process: ", process.calcAvgExec());
+        std::println("{:<29} {}", "Fair share order: ", process.schedule());
+        std::println("{:<29} {:.5}\n", "Avg time for process: ", process.calcAvgExec());
     }
     else if constexpr (std::same_as<T, RR>)
     {

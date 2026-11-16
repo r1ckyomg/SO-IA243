@@ -7,6 +7,7 @@
 #include <optional>
 #include <numeric>
 #include <algorithm>
+#include <utility>
 
 struct Unit
 {
@@ -59,7 +60,7 @@ public:
 
     constexpr float calcAvgExec()
     {
-        float sum = 0.0;
+        float sum = 0.0f;
         for (size_t i = 0; i < data.size(); ++i)
         {
             sum += float(data[i]) * (data.size() - i);
@@ -69,7 +70,7 @@ public:
         return sum;
     }
 
-    constexpr std::vector<Unit> quantOverhead(bool is_srtf = false)
+    constexpr std::vector<Unit> quantOverhead(const bool is_srtf = false)
     {
         //A(10), B(15), C(20), D(25) K=10 -> A(10) B(10) C(10) D(10) B(5) C(10) D(10) D(5)
         for (size_t i = 0; i < data.size(); ++i)
