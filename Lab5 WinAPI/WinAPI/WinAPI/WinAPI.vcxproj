@@ -130,6 +130,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="evenTasks.hpp" />
+    <ClInclude Include="helper.hpp" />
+    <ClInclude Include="oddTasks.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
